@@ -1,0 +1,60 @@
+﻿@model Projekt.ViewModels.GradeIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Dodaj Ocenę", "Create", "Grades",new{studentId=Model.StudentId, name = Model.StudentName, surname = Model.StudentSurname},new{@class=""})
+</p>
+
+<h4>@Html.DisplayFor(Model => Model.StudentName) @Html.DisplayFor(Model => Model.StudentSurname)</h4>
+<br />
+
+<table class="table">
+    <tr>
+        <th >
+            <h5 class="">Grades</h5>
+        </th>
+    </tr>
+
+    
+    
+        @try
+        {
+            foreach (var grade in Model.Grades)
+            {
+                <tr>
+                    <td>
+                         @grade.Value
+                    </td>
+
+                    <td>
+                         @Html.ActionLink("Edit", "Edit", "Grades", new { id = grade.Id }, new { @class = "" }) |
+                         @Html.ActionLink("Details", "Details", "Grades", new { id = grade.Id, name = Model.StudentName, surname = Model.StudentSurname }, new { @class = "" }) |
+                         @Html.ActionLink("Delete", "Delete", "Grades", new { id = grade.Id }, new { @class = "" })
+                    </td>
+                </tr>
+                
+            }
+        }
+        catch
+        {
+            <td>
+                <p>Brak ocen</p>
+            </td>
+     
+        }
+
+
+
+    
+    
+</table>
+
+<div>
+    @Html.ActionLink("Back to students", "Index","Student")
+</div>
