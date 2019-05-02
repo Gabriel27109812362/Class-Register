@@ -36,13 +36,17 @@ namespace Projekt.Controllers
         }
 
         //// GET: Grades/Details/5
-        public ActionResult Details(int id, string name, string surname)
+        public ActionResult Details(int id)
         {
             var grade = db.Grades.Find(id);
+           var student = sc.Students.Find(grade.StudentId);
 
             var viewModel = new GradeDetailsViewModel
             {
-                Grade = grade
+                Grade = grade,
+                Name = student.Name,
+                Surname = student.Surname
+               
             };
 
             return View(viewModel);

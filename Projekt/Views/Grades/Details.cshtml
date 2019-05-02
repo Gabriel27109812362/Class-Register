@@ -39,5 +39,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Grade.Id  }) |
-    @Html.ActionLink("Back to Grades", "Index")
+    @Html.ActionLink("Back to Grades", "Index", new{id=Model.Grade.StudentId})
 </p>
