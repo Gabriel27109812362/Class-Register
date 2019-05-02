@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Dodaj Ocenę", "Create", "Grades",new{studentId=Model.StudentId, name = Model.StudentName, surname = Model.StudentSurname},new{@class=""})
+    @Html.ActionLink("Dodaj Ocenę", "Create", "Grades",new{studentId=Model.StudentId},new{@class=""})
 </p>
 
 <h4>@Html.DisplayFor(Model => Model.StudentName) @Html.DisplayFor(Model => Model.StudentSurname)</h4>

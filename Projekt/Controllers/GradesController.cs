@@ -13,20 +13,23 @@ namespace Projekt.Controllers
     public class GradesController : Controller
     {
 
-        GradesContext db = new GradesContext(); 
+       private GradesContext db = new GradesContext();
+       private StudentsContext sc = new StudentsContext();
+
         // GET: Grades
-        public ActionResult Index(int id, string name, string surname)
+        public ActionResult Index(int id)
         {
             var grades = from grd in db.Grades
                 where grd.StudentId == id
                 select grd;
+            var student = sc.Students.Find(id);
 
             var viewModel = new GradeIndexViewModel //zrobione
             {
                 Grades =grades,
                 StudentId = id,
-                StudentName = name,
-                StudentSurname = surname,
+                StudentName = student.Name,
+                StudentSurname = student.Surname,
             };
                      
             return View(viewModel);
