@@ -39,7 +39,7 @@ namespace Projekt.Controllers
         public ActionResult Details(int id)
         {
             var grade = db.Grades.Find(id);
-           var student = sc.Students.Find(grade.StudentId);
+           var student = sc.Students.Find(grade.StudentId); //zrobione
 
             var viewModel = new GradeDetailsViewModel
             {
@@ -84,19 +84,29 @@ namespace Projekt.Controllers
         public ActionResult Edit(int id)
         {
             var grade = db.Grades.Single(x => x.Id == id);
-            return View(grade);
+            var student = sc.Students.Find(grade.StudentId);        //zrobione
+
+            var viewModel = new GradeEditViewModel
+            {
+                Grade = grade,
+                StudentId = student.Id,
+            };
+
+
+            return View(viewModel);
         }
 
         //// POST: Grades/Edit/5
         [HttpPost]
         public ActionResult Edit(Grade grade)
         {
+            var student = sc.Students.Find(grade.StudentId);            //Zrobione
             try
             {
                 db.Entry(grade).State = EntityState.Modified;
                 db.SaveChanges();
 
-                return RedirectToAction("Index","Grades");
+                return RedirectToAction("Index","Grades",new {id = student.Id});
             }
             catch
             {
@@ -107,22 +117,30 @@ namespace Projekt.Controllers
         // GET: Grades/Delete/5
         public ActionResult Delete(int id=0)
         {
-            Grade grade = db.Grades.Find(id);
+            var grade = db.Grades.Single(x=> x.Id == id);
+            var student = sc.Students.Find(grade.StudentId);
 
-            return View(grade);
+            var viewModel = new GradeDeleteViewModel
+            {
+                Grade = grade,
+                StudentId = student.Id
+            };
+
+            return View(viewModel);
         }
 
         // POST: Grades/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Delete_post(int id)
         {
+            var grade = db.Grades.Find(id);
+            var student = sc.Students.Find(grade.StudentId);
             try
             {
-                Grade grade = db.Grades.Find(id);
                 db.Grades.Remove(grade);
-                db.SaveChanges();
+                db.SaveChanges(); 
 
-                return RedirectToAction("Index","Grades");
+                return RedirectToAction("Index","Grades", new{id = student.Id});
             }
             catch
             {
