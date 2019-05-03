@@ -71,6 +71,18 @@ namespace Projekt.Controllers
         // GET: Auth/Edit/5
         public ActionResult Edit(int id)
         {
+            var student = sc.Students.Find(id);
+            var auth = db.Auths.Find(id);
+
+            if (auth == null)
+            {
+                var viewModel = new AuthNotExistViewModel
+                {
+                    Student = student
+                };
+                return View("AuthNotExist", viewModel);
+            }
+
             return View();
         }
 
