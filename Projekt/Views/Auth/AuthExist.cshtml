@@ -1,0 +1,16 @@
+﻿@model Projekt.ViewModels.AuthExistViewModel
+
+@{
+    ViewBag.Title = "AuthExist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Informacja:</h2>
+
+<div>
+    <br />
+    <h4>Student @Model.Student.Name @Model.Student.Surname o id: @Model.Student.Id posiada już dane autoryzacyjne</h4>
+</div>
+<p>
+    @Html.ActionLink("Wróć do listy studentów", "Index","Student")
+</p>

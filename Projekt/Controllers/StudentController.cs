@@ -105,106 +105,16 @@ namespace Projekt.Controllers
             }
         }
 
-        //public ActionResult ShowGrades(int id)
-        //{
-        //    var student = db.Students.Find(id);
+        public ActionResult Settings(int id)
+        {
+            var student = db.Students.Find(id);
+            var viewModel = new StudentSettingsViewModel
+            {
+                Student = student
+            };
 
-        //    var viewModel = new ShowGradesViewModel
-        //    {
-        //        Grades = student.Grades,
-        //        StudentId = id
-                
-        //    };
-
-
-        //    return View(viewModel);
-        //}
-
-        //public ActionResult AddGrade(int id)
-        //{
-        //    var viewModel = new GradeViewModel()
-        //    {
-        //        StudentId = id
-        //    };
-
-        //    return View(viewModel);
-        //}
-        //[HttpPost]
-        //public ActionResult AddGrade(int id, float grade)
-        //{
-        //    try
-        //    {
-        //        db.Students.Find(id).Grades.Add(grade);
-        //        db.SaveChanges();
-        //        return RedirectToAction("ShowGrades");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-           
-
+            return View(viewModel);
             
-        //}
-
-        //public ActionResult DeleteGrade(int id, int studentId)
-        //{
-        //    var grade = db.Students.Find(studentId).Grades[id];
-        //    var viewModel = new GradeViewModel
-        //    {
-        //        Grade = grade,
-        //        StudentId = studentId
-        //    };
-
-        //    return View(viewModel);
-        //}
-
-        //[HttpPost, ActionName("DeleteGrade")]
-        //public ActionResult Delete_Gr(int id, int studentId)
-        //{
-        //    try
-        //    {
-        //        db.Students.Find(studentId).Grades.RemoveAt(id);
-        //        db.SaveChanges();
-        //        return RedirectToAction("ShowGrades");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-           
-        //}
-
-        //public ActionResult AddAuth()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult AddAuth(Auth auth)
-        //{
-        //    try
-        //    {
-        //        db.Auths.Add(auth);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //public ActionResult EditAuth()
-        //{
-        //    return View();
-            
-        //}
-
-        //[HttpPost]
-        //public ActionResult EditAuth()
-        //{
-        //    return View();
-        //}
+        }
     }
 }

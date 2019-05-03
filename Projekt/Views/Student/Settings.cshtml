@@ -1,0 +1,17 @@
+﻿@model Projekt.ViewModels.StudentSettingsViewModel
+
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Settings</h2>
+
+
+<div>
+
+    @Html.ActionLink("Add Auth", "Create","Auth", new { id = Model.Student.Id},new{@class=""}) |
+    @Html.ActionLink("Change Auth", "Edit","Auth", new { id = Model.Student.Id },new{@class=""}) |
+    @Html.ActionLink("Back to List", "Index","Student")
+
+</div>
