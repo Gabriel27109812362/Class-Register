@@ -145,6 +145,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AuthCreateViewModel.cs" />
+    <Compile Include="ViewModels\AuthEditViewModel.cs" />
     <Compile Include="ViewModels\AuthExistViewModel.cs" />
     <Compile Include="ViewModels\AuthNotExistViewModel.cs" />
     <Compile Include="ViewModels\GradeCreateViewModel.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Views\Auth\AuthExist.cshtml" />
     <Content Include="Views\Auth\Create.cshtml" />
     <Content Include="Views\Auth\AuthNotExist.cshtml" />
+    <Content Include="Views\Auth\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

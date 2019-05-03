@@ -80,19 +80,19 @@ namespace Projekt.Controllers
         }
 
         // GET: Student/Delete/5
-        public ActionResult Delete(int id=0)
+        public ActionResult Delete(int id)
         {
             Student student = db.Students.Find(id);
             return View(student);
         }
 
         // POST: Student/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Delete_student(int id)
         {
+            var student = db.Students.Find(id);
             try
             {
-                Student student = db.Students.Find(id);
                 db.Students.Remove(student);
                 db.SaveChanges();
              

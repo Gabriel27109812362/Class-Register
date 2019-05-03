@@ -27,7 +27,7 @@ namespace Projekt.Migrations
                         Password = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Students", t => t.Id)
+                .ForeignKey("dbo.Students", t => t.Id,true)
                 .Index(t => t.Id);
             
             CreateTable(
@@ -39,7 +39,7 @@ namespace Projekt.Migrations
                         Value = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Students", t => t.StudentId, cascadeDelete: true)
+                .ForeignKey("dbo.Students", t => t.StudentId,true)
                 .Index(t => t.StudentId);
             
         }

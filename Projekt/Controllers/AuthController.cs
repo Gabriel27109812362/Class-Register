@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,7 +44,7 @@ namespace Projekt.Controllers
             {
                 var viewModel = new AuthCreateViewModel
                 {
-                    StudentId = student.Id
+                    Id = student.Id
                 };
                 return View("Create",viewModel);
             }
@@ -82,19 +83,27 @@ namespace Projekt.Controllers
                 };
                 return View("AuthNotExist", viewModel);
             }
+            else
+            {
+                var viewModel = new AuthEditViewModel
+                {
+                    Id = student.Id
+                };
+                return View("Edit", viewModel);
+            }
 
-            return View();
+            
         }
 
         // POST: Auth/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Auth auth)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                db.Entry(auth).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index","Student");
             }
             catch
             {

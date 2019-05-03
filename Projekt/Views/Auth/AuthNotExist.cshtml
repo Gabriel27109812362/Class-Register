@@ -11,5 +11,5 @@
     <h4>Student @Model.Student.Name @Model.Student.Surname o id: @Model.Student.Id nie posiada danych autoryzacyjnych</h4>
 </div>
 <p>
-    @Html.ActionLink("Wróć do listy studentów", "Index","Student")
+    @Html.ActionLink("Wróć do ustawień", "Settings","Student",new{id=Model.Student.Id},new{@class=""})
 </p>
