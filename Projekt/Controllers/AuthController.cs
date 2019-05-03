@@ -12,19 +12,6 @@ namespace Projekt.Controllers
 {
     public class AuthController : Controller
     {
-        //// GET: Auth
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        //// GET: Auth/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
-        // GET: Auth/Create
         private AuthContext db = new AuthContext();
         private StudentsContext sc = new StudentsContext();
         public ActionResult Create(int id)
@@ -111,26 +98,5 @@ namespace Projekt.Controllers
             }
         }
 
-        // GET: Auth/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: Auth/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }

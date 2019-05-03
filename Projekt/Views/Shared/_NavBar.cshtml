@@ -2,14 +2,14 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" wfd-id="598">
         <span class="navbar-toggler-icon" wfd-id="464"></span>
     </button>
-    @Html.ActionLink("Projekt", "Index", "Student", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Projekt", "Index", "Student", new {}, new { @class = "navbar-brand" })
 
 
     <div class="collapse navbar-collapse" id="navbarColor01" wfd-id="456">
         <ul class="navbar-nav mr-auto" wfd-id="458">
           
             <li class="nav-item" wfd-id="461">
-                @Html.ActionLink("Zaloguj", "Index","Student", "SignIn", new {@class = "navbar-brand"})
+                @Html.ActionLink("Zaloguj", "Authenticate","Login",new {}, new {@class = "navbar-brand"})
             </li>
          
         </ul>
