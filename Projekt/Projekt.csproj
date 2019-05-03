@@ -155,6 +155,7 @@
     <Compile Include="ViewModels\GradeEditViewModel.cs" />
     <Compile Include="ViewModels\GradeIndexViewModel.cs" />
     <Compile Include="ViewModels\LoginAuthenticateViewModel.cs" />
+    <Compile Include="ViewModels\LoginSignedViewModel.cs" />
     <Compile Include="ViewModels\StudentSettingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,9 +248,12 @@
     <Content Include="Views\Auth\Edit.cshtml" />
     <Content Include="Views\Login\Authenticate.cshtml" />
     <Content Include="Views\Login\WrongAuthData.cshtml" />
+    <Content Include="Views\Login\LoggedStudent.cshtml" />
+    <Content Include="Views\Login\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LoggedStudent\" />
     <Folder Include="Views\Settings\" />
   </ItemGroup>
   <ItemGroup>

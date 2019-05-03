@@ -1,0 +1,14 @@
+﻿@model Projekt.ViewModels.LoginSignedViewModel
+
+@{
+    ViewBag.Title = "LoggedStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Witaj @Model.Student.Name @Model.Student.Surname</h2>
+
+@Html.ActionLink("Oceny", "GradeDetails",new{id = Model.Student.Id, name = Model.Student.Name, surname = Model.Student.Surname}, new { @class="" }) |
+@Html.ActionLink("Zmień swoje dane", "Edit", new { id = Model.Student.Id }, new { @class = "" }) |
+@Html.ActionLink("Wyloguj", "Logout")
+
+
