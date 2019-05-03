@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,5 +15,6 @@ namespace Projekt.ViewModels
         public string StudentName { get; set; }
 
         public string StudentSurname { get; set; }
+      
     }
 }

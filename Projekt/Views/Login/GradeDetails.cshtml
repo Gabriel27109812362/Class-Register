@@ -1,0 +1,26 @@
+﻿@model Projekt.ViewModels.GradeIndexViewModel
+
+@{
+    ViewBag.Title = "GradeDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GradeDetails</h2>
+
+<p>@Model.StudentName @Model.StudentSurname Oceny:</p>
+<table class="table">
+
+    
+    @foreach (var grade in Model.Grades)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => grade.Value)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@Html.ActionLink("Wyloguj","Logout")

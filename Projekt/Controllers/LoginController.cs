@@ -13,19 +13,10 @@ namespace Projekt.Controllers
 {
     public class LoginController : Controller
     {
-        //// GET: Login
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        // GET: Login/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
         private AuthContext db = new AuthContext();
         private StudentsContext sc = new StudentsContext();
+        private GradesContext gc = new GradesContext();
+
         // GET: Login/Authenticate
         public ActionResult Authenticate()
         {
@@ -98,8 +89,19 @@ namespace Projekt.Controllers
 
         public ActionResult GradeDetails(int id, string name, string surname)
         {
+            var grades = from grd in gc.Grades
+                where grd.StudentId == id
+                select grd;
 
-            return View();
+            var viewModel = new GradeIndexViewModel
+            {
+                Grades = grades,
+                StudentId = id,
+                StudentName = name,
+                StudentSurname = surname
+            };
+            
+            return View(viewModel);
         }
 
         public ActionResult Logout()
