@@ -11,11 +11,11 @@ namespace Projekt.Models
     {
         [Key]
         public int Id { get; set; }
-       // [Required, DataType("string",ErrorMessage = "Wpisano liczbę")]
+        [Required]
         public string Name { get; set; }
-       // [Required, DataType("string",ErrorMessage = "Wpisano Liczbę")]
+        [Required]
         public string Surname { get; set; }
-       // [Required, Range(6,99,ErrorMessage = "Należy wpisać liczbę w przedziału od 6-99")]
+        [Required, Range(6,99,ErrorMessage = "Należy wpisać liczbę w przedziału od 6-99")]
         public int Age { get; set; }
 
         public virtual Auth Auth { get; set; }

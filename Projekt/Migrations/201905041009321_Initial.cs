@@ -12,8 +12,8 @@ namespace Projekt.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Surname = c.String(),
+                        Name = c.String(nullable: false),
+                        Surname = c.String(nullable: false),
                         Age = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -27,7 +27,7 @@ namespace Projekt.Migrations
                         Password = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Students", t => t.Id,true)
+                .ForeignKey("dbo.Students", t => t.Id)
                 .Index(t => t.Id);
             
             CreateTable(
@@ -39,7 +39,7 @@ namespace Projekt.Migrations
                         Value = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Students", t => t.StudentId,true)
+                .ForeignKey("dbo.Students", t => t.StudentId, cascadeDelete: true)
                 .Index(t => t.StudentId);
             
         }

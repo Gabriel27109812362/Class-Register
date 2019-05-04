@@ -11,7 +11,6 @@ namespace Projekt.Models
     {
         [Key, Column(Order = 0)]
         public int Id { get; set; }
-
         public float Value { get; set; }
 
         [ForeignKey("Student"), Column(Order = 2)]
