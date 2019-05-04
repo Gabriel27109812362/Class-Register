@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h3>Edytuj ocenę</h3>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>GradeEditViewModel</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Grade.Id)
@@ -21,7 +20,7 @@
     @Html.HiddenFor(model => model.Grade.StudentId)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Grade.Value, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label class="col-md-2">Wartość:</label>
         <div class="col-md-10">
             @Html.EditorFor(model => model.Grade.Value, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Grade.Value, "", new { @class = "text-danger" })
@@ -30,12 +29,12 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Zapisz" class="btn btn-primary" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new{id = Model.StudentId})
+    @Html.ActionLink("Wróć do listy ocen", "Index", new{id = Model.StudentId})
 </div>

@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h3>Szczegóły oceny</h3>
 
 <div>
-    <h4>GradeDetailsViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            Imię:
         </dt>
 
         <dd>
@@ -20,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Surname)
+            Nazwisko:
         </dt>
 
         <dd>
@@ -28,7 +27,7 @@
         </dd>
 
         <dt>
-            Ocena :
+             Wartość:
         </dt>
 
         <dd>
@@ -38,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Grade.Id  }) |
-    @Html.ActionLink("Back to Grades", "Index", new{id=Model.Grade.StudentId})
+    @Html.ActionLink("Edytuj ocenę", "Edit", new { id = Model.Grade.Id  }) |
+    @Html.ActionLink("Wróć do listy ocen", "Index", new{id=Model.Grade.StudentId})
 </p>

@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Settings</h2>
+<h2>Ustawienia</h2>
 
 
 <div>
 
-    @Html.ActionLink("Add Auth", "Create","Auth", new { id = Model.Student.Id},new{@class=""}) |
-    @Html.ActionLink("Change Auth", "Edit","Auth", new { id = Model.Student.Id},new{@class=""}) |
-    @Html.ActionLink("Back to List", "Index","Student")
+    @Html.ActionLink("Dodaj dane Autoryzacyjne", "Create","Auth", new { id = Model.Student.Id},new{@class=""}) |
+    @Html.ActionLink("Edytuj dane autoryzacyjne", "Edit","Auth", new { id = Model.Student.Id},new{@class=""}) |
+    @Html.ActionLink("Wróć do listy studentów", "Index","Student")
 
 </div>

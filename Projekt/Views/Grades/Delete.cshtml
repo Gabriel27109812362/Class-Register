@@ -5,18 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Jesteś pewien że chcesz usunąć tą ocenę ?</h3>
 <div>
-    <h4>GradeDeleteViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
 
         @Html.HiddenFor(model => model.Grade.Id)
 
         <dt>
-            @Html.DisplayNameFor(model => model.Grade.Value)
+            Wartość:
         </dt>
 
         <dd>
@@ -29,8 +26,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index", new{id = Model.StudentId})
+            <input type="submit" value="Usuń" class="btn btn-primary" /> |
+            @Html.ActionLink("Wróć do listy ocen", "Index", new{id = Model.StudentId})
         </div>
     }
 </div>

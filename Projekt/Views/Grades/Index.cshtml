@@ -5,24 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Dodaj Ocenę", "Create", "Grades",new{studentId=Model.StudentId},new{@class=""})
-</p>
 
-<h4>@Html.DisplayFor(Model => Model.StudentName) @Html.DisplayFor(Model => Model.StudentSurname)</h4>
+<h3>@Html.DisplayFor(Model => Model.StudentName) @Html.DisplayFor(Model => Model.StudentSurname)</h3>
 <br />
 
 <table class="table">
     <tr>
         <th >
-            <h5 class="">Grades</h5>
+            <h5 class="">Oceny</h5>
         </th>
     </tr>
 
-    
-    
         @try
         {
             foreach (var grade in Model.Grades)
@@ -33,12 +27,11 @@
                     </td>
 
                     <td>
-                         @Html.ActionLink("Edit", "Edit", "Grades", new { id = grade.Id }, new { @class = "" }) |
-                         @Html.ActionLink("Details", "Details", "Grades", new { id = grade.Id }, new { @class = "" }) |
-                         @Html.ActionLink("Delete", "Delete", "Grades", new { id = grade.Id }, new { @class = "" })
+                         @Html.ActionLink("Edytuj ocenę", "Edit", "Grades", new { id = grade.Id }, new { @class = "" }) |
+                         @Html.ActionLink("Szczegóły", "Details", "Grades", new { id = grade.Id }, new { @class = "" }) |
+                         @Html.ActionLink("Usuń ocenę", "Delete", "Grades", new { id = grade.Id }, new { @class = "" })
                     </td>
                 </tr>
-                
             }
         }
         catch
@@ -46,15 +39,15 @@
             <td>
                 <p>Brak ocen</p>
             </td>
-     
-        }
-
-
-
-    
-    
+        }  
 </table>
 
 <div>
-    @Html.ActionLink("Back to students", "Index","Student")
+    <p>
+        @Html.ActionLink("Dodaj Ocenę", "Create", "Grades",new{studentId=Model.StudentId},new{@class=""})
+    </p>
+    <p>
+        @Html.ActionLink("Wróć do listy studentów", "Index", "Student")
+    </p>
+    
 </div>
