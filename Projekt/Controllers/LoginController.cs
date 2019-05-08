@@ -48,8 +48,7 @@ namespace Projekt.Controllers
                    {
                         Student = student
                    };
-                   FormsAuthentication.SetAuthCookie(student.Name,false);
-
+                   FormsAuthentication.SetAuthCookie(student.Name,true);
                    return View("LoggedStudent",viewModel);
                }                
             }
@@ -58,16 +57,19 @@ namespace Projekt.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
-            var auth = db.Auths.Find(id);
-
-            var viewModel = new AuthEditViewModel
-            {
-                Id = auth.Id
-            };
-            return View("Edit", viewModel);
+            
+            
+                var auth = db.Auths.Find(id);
+                            var viewModel = new AuthEditViewModel
+                            {
+                                Id = auth.Id
+                            };
+                            return View("Edit", viewModel);
+            
+          
         }
 
         // POST: Login/Edit/5
@@ -86,26 +88,31 @@ namespace Projekt.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         public ActionResult GradeDetails(int id, string name, string surname)
         {
-            var grades = from grd in gc.Grades
-                where grd.StudentId == id
-                select grd;
-
-            var viewModel = new GradeIndexViewModel
-            {
-                Grades = grades,
-                StudentId = id,
-                StudentName = name,
-                StudentSurname = surname
-            };
             
-            return View(viewModel);
+            
+             var grades = from grd in gc.Grades
+                            where grd.StudentId == id
+                            select grd;
+
+                        var viewModel = new GradeIndexViewModel
+                        {
+                            Grades = grades,
+                            StudentId = id,
+                            StudentName = name,
+                            StudentSurname = surname
+                        };
+                        
+                        return View(viewModel);
+          
+           
         }
 
         public ActionResult Logout()
         {
+            FormsAuthentication.SignOut();
             return RedirectToAction("Authenticate");
         }
 
